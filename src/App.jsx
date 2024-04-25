@@ -5,7 +5,7 @@ import Card from './Components/Card'
 
 const App = () => {
   return (
-    <div className='relative w-full h-screen bg-[#2d2d2d]'>
+    <div className='relative w-full h-screen bg-[#242424]'>
       <Background/>
       <Foreground/>
     </div>
