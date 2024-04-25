@@ -2,10 +2,11 @@ import React from 'react'
 import { FaRegFileAlt } from "react-icons/fa";
 import { FaArrowDownLong } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
+import { motion } from "framer-motion"
 
-const Card = ({data}) => {
+const Card = ({data, reference}) => {
   return (
-    <div className='relative p-6 w-[190px] h-[240px] text-[#bababa] bg-[#121212] rounded-[35px] overflow-hidden'>
+    <motion.div drag dragConstraints={reference} className='relative p-6 w-[190px] h-[240px] text-[#bababa] bg-[#121212] rounded-[35px] overflow-hidden'>
       <FaRegFileAlt />
 
       <p className='text-xs font-semibold leading-tight pt-3'>{data.desc}</p>
@@ -20,15 +21,12 @@ const Card = ({data}) => {
               )}
               
           </div>
-          {/* bg-[#248124] */}
-          {/* bg-[${data.tag.tagColor}] */}
-          {/* [${data.tag.tagColor}] */}
           {data.tag.isOpen && 
           <div className={`tag w-full h-[45px] bg-[${data.tag.tagColor}] flex items-center justify-center`}>
             <p className='leading-none font-medium text-[#dbdbdb] text-[15px]'>{data.tag.tagTitle}</p>
           </div>}
       </div>
-    </div>
+    </motion.div>
   )
 }
 

@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Card from './Card'
 
 const Foreground = () => {
+
+  const ref = useRef(null);
+
   const data = [
     {
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita!",
@@ -41,9 +44,9 @@ const Foreground = () => {
     }
   ]
   return (
-    <div className='fixed top-0 left-0 z-[3] w-full h-screen flex flex-wrap gap-[20px] pt-[180px] px-10'>
+    <div ref={ref} className='fixed top-0 left-0 z-[3] w-full h-screen flex flex-wrap gap-[20px] pt-[180px] px-10'>
       {data.map((item, index)=> (
-        <Card data={item}/>
+        <Card data={item} reference={ref}/>
       ))}
     </div>
   )
